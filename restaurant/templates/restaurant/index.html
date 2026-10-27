@@ -1,0 +1,9 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Little Lemon | Mediterranean dining</title><link rel="stylesheet" href="{% static 'css/site.css' %}"></head>
+<body>
+<header class="hero"><nav><strong>Little Lemon</strong><a href="#menu">Menu</a><a href="#booking">Book a table</a><a href="/api/menu/">API</a></nav><div class="hero-copy"><p class="eyebrow">MEDITERRANEAN · SEASONAL · WARM</p><h1>Fresh flavors.<br><em>Bright moments.</em></h1><p>Neighborhood cooking inspired by the Mediterranean, served with sunshine and a little zest.</p><a class="button" href="#booking">Reserve your table</a></div></header>
+<main><section id="menu" class="section"><div class="section-heading"><p class="eyebrow">FROM OUR KITCHEN</p><h2>A little something for everyone</h2></div><div class="menu-grid">{% for item in menu_items %}<article class="menu-card"><span class="dish-dot"></span><h3>{{ item.title }}</h3><p>Chef-prepared with seasonal ingredients.</p><strong>${{ item.price }}</strong></article>{empty}<article class="menu-card"><span class="dish-dot"></span><h3>Menu coming soon</h3><p>Explore our API to add today's dishes.</p><a href="/api/menu/">View menu API →</a></article>{% endfor %}</div></section>
+<section id="booking" class="booking"><div><p class="eyebrow">YOUR TABLE AWAITS</p><h2>Make it a lemon kind of day.</h2><p>For reservations, use the booking API with an authenticated account. Our team looks forward to welcoming you.</p></div><div class="api-note"><h3>REST API quick links</h3><a href="/api/menu/">Browse menu →</a><a href="/api/bookings/">My bookings →</a><a href="/admin/">Staff admin →</a><p>Base URL: <code>http://127.0.0.1:8000</code></p></div></section></main><footer><span>© Little Lemon</span><span>Good food, good mood.</span></footer>
+</body></html>
